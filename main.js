@@ -1,5 +1,5 @@
 function getId(id) {
-    return document.getElementeById(id)
+    return document.getElementById(id)
 }
 
 const searchBar = getId("search-bar")
@@ -13,9 +13,15 @@ submitButton.addEventListener('click', function(event){
             term: searchBar.value,
             country: 'US'
         },
-        success: function(results){
-            console.log(results)
-            let 
+        success: function (jsonFile){
+            data = JSON.parse(jsonFile)
+            console.log(data)
+            let dataDisp = getId("output")
+            let countDisp = document.createElement('p')
+            countDisp.innerText = `you got ${data.resultCount} hits`
+            dataDisp.appendChild(countDisp)
+
+            // for (let item in data.results)
         }
     })
 })
