@@ -7,15 +7,32 @@ function getId(id) {
     return document.getElementById(id)
 }
 
+
 function makeElement(tag) {
     return document.createElement(tag)
 }
 
+
 const searchBar = getId("search-bar")
 const submitButton = getId("submit")
 
-// break this into 2 functions 
-submitButton.addEventListener('click', function(event){
+
+function enterKey() {
+    searchBar.addEventListener("keydown", function(event) {
+        if (event.code === "Enter") {
+            searchEvent(event)
+        }
+    })
+    
+}
+
+
+function mouseClick() {
+    submitButton.addEventListener("click", searchEvent)
+}
+
+
+function searchEvent() {
     // look into making every word capitalized
     console.log(searchBar.value)
     $.ajax({
@@ -24,7 +41,7 @@ submitButton.addEventListener('click', function(event){
             term: searchBar.value,
             country: 'US'
         },
-        success: function (jsonFile){
+        success: function (jsonFile) {
             data = JSON.parse(jsonFile)
             console.log(data)
             let dataDisp = getId("output")
@@ -60,4 +77,8 @@ submitButton.addEventListener('click', function(event){
             }
         }
     })
-})
+}
+
+
+enterKey()
+mouseClick()
