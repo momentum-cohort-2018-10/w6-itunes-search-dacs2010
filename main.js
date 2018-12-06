@@ -29,9 +29,22 @@ submitButton.addEventListener('click', function(event){
 
             for (let item of data.results) {
                 let itemDisp = makeElement("div")
-                let itemTitle = makeElement("p")
-                itemTitle.innerText = item.artistName
-                itemDisp.appendChild(itemTitle)
+                itemDisp.classList.add("item")
+                // varaiables or list items
+                let itemImage = makeElement("img")
+                let itemArtistName = makeElement("p")
+                let itemAlbum = makeElement("p")
+                let itemSongTitle = makeElement("p")
+                // call them 
+                itemImage.src = item.artworkUrl100
+                itemArtistName.innerText = `Artist Name: ${item.artistName}`
+                itemAlbum.innerText = `Album Name: ${item.collectionName}`
+                itemSongTitle.innerText = `Song Title: ${item.trackName}`
+                //set them as nodes
+                itemDisp.appendChild(itemImage)
+                itemDisp.appendChild(itemArtistName)
+                itemDisp.appendChild(itemAlbum)
+                itemDisp.appendChild(itemSongTitle)
                 dataDisp.appendChild(itemDisp)
             }
         }
