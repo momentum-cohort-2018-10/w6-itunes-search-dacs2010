@@ -30,18 +30,22 @@ submitButton.addEventListener('click', function(event){
             for (let item of data.results) {
                 let itemDisp = makeElement("div")
                 itemDisp.classList.add("item")
-                // varaiables or list items
+                // things i want
                 let itemImage = makeElement("img")
+                let itemSong = makeElement("video")
                 let itemArtistName = makeElement("p")
                 let itemAlbum = makeElement("p")
                 let itemSongTitle = makeElement("p")
-                // call them 
+                // call elements 
                 itemImage.src = item.artworkUrl100
+                itemSong.src = item.previewUrl
+                itemSong.controls = "controls"
                 itemArtistName.innerText = `Artist Name: ${item.artistName}`
                 itemAlbum.innerText = `Album Name: ${item.collectionName}`
                 itemSongTitle.innerText = `Song Title: ${item.trackName}`
-                //set them as nodes
+                //set elements as nodes
                 itemDisp.appendChild(itemImage)
+                itemDisp.appendChild(itemSong)
                 itemDisp.appendChild(itemArtistName)
                 itemDisp.appendChild(itemAlbum)
                 itemDisp.appendChild(itemSongTitle)
