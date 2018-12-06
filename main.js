@@ -1,3 +1,8 @@
+// - clear the search bar after a search or when reloading page
+// - and i need the 'enter' key to exicute the search
+// - have one player that plays everything
+
+
 function getId(id) {
     return document.getElementById(id)
 }
@@ -9,6 +14,7 @@ function makeElement(tag) {
 const searchBar = getId("search-bar")
 const submitButton = getId("submit")
 
+// break this into 2 functions 
 submitButton.addEventListener('click', function(event){
     // look into making every word capitalized
     console.log(searchBar.value)
@@ -26,6 +32,7 @@ submitButton.addEventListener('click', function(event){
             dataDisp.innerHTML = ""
             countDisp.innerText += `There are ${data.resultCount} hits for ${searchBar.value}`
             dataDisp.appendChild(countDisp)
+            searchBar.value = ""
 
             for (let item of data.results) {
                 let itemDisp = makeElement("div")
