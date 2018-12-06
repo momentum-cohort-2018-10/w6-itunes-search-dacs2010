@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(31, 109, 24);
+    padding: 0px;
+    margin: 0px;    
+}
+
+#wrapper {
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#main-screen {
+    background-color:rgb(255, 255, 255);
+    grid-row: 1 ;
+    grid-column: 2/4;
+    height: 100vh;
+    width: auto;
+}
+
+#title{
+    font-family: 'Righteous', cursive;
+    font-size: 50px;
+}
+
+#search-bar{   
+    margin: 0 auto;
+}
+
+#submit{}
+
+#player{}
+
+#output {
+    background-color: rgb(255, 255, 255);
+    overflow: scroll;
+    grid-row: 1;
+    grid-column: 1/2;
+    height: 100vh;
+    width: auto;
+
+}

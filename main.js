@@ -1,7 +1,8 @@
 // - clear the search bar after a search or when reloading page
 // - and i need the 'enter' key to exicute the search
 // - have one player that plays everything
-
+// - organize search results by artist, song title, or album
+// - look into making every word capitalized
 
 function getId(id) {
     return document.getElementById(id)
@@ -33,13 +34,12 @@ function mouseClick() {
 
 
 function searchEvent() {
-    // look into making every word capitalized
-    console.log(searchBar.value)
+    
     $.ajax({
         url: 'https://itunes.apple.com/search',
         data: {
             term: searchBar.value,
-            country: 'US'
+            media: 'music'
         },
         success: function (jsonFile) {
             data = JSON.parse(jsonFile)
@@ -56,23 +56,24 @@ function searchEvent() {
                 itemDisp.classList.add("item")
                 // things i want
                 let itemImage = makeElement("img")
-                let itemSong = makeElement("video")
+                let itemMedia = makeElement("video")
                 let itemArtistName = makeElement("p")
                 let itemAlbum = makeElement("p")
                 let itemSongTitle = makeElement("p")
                 // call elements 
                 itemImage.src = item.artworkUrl100
-                itemSong.src = item.previewUrl
-                itemSong.controls = "controls"
+                itemMedia.src = item.previewUrl
+                itemMedia.controls = "controls"
                 itemArtistName.innerText = `Artist Name: ${item.artistName}`
                 itemAlbum.innerText = `Album Name: ${item.collectionName}`
                 itemSongTitle.innerText = `Song Title: ${item.trackName}`
-                //set elements as nodes
+                // set elements as nodes
                 itemDisp.appendChild(itemImage)
-                itemDisp.appendChild(itemSong)
                 itemDisp.appendChild(itemArtistName)
                 itemDisp.appendChild(itemAlbum)
                 itemDisp.appendChild(itemSongTitle)
+                itemDisp.appendChild(itemMedia)
+                // put them in here
                 dataDisp.appendChild(itemDisp)
             }
         }
