@@ -21,15 +21,25 @@ body {
 #title{
     font-family: 'Righteous', cursive;
     font-size: 50px;
+    margin: 10px;
 }
 
 #search-bar{   
     margin: 0 auto;
+    width: 300px;
 }
 
-#submit{}
+#submit{
+    border: none;
+    width: 51px;
+    height: 22px;
+}
 
-#player{}
+#player-wrapper{
+    background-color: blue;
+    height: 25px;
+    width: 25px;
+}
 
 #output {
     background-color: rgb(255, 255, 255);
@@ -39,4 +49,8 @@ body {
     height: 100vh;
     width: auto;
 
+}
+.item {
+    height: auto;
+    width: auto;
 }
