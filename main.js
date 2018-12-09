@@ -79,7 +79,7 @@ function searchEvent() {
 
 $('#output').on("click", ".item", function (event) {
     console.log(event)
-    $('#player').attr("src", event.target.src)
+    $('#player').attr("src", event.target.src).trigger('play')
 } )
 
 
