@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tune Potato</title>
+    <title>Music Player</title>
     <!--<script src="jquery-3.3.1.min.js" defer></script>-->
     <script
 			  src="https://code.jquery.com/jquery-3.3.1.js"
@@ -17,10 +17,12 @@
 </head>
 <body><div id="wrapper">
     <div id="main-screen">
-        <p id="title">Tune Potato</p>
-        <input id="search-bar" type="text" placeholder="Search for Artists, Songs, and Movies...">
-        <button id="submit">Search</button>
-        <div id="player-wrapper"></div>
+        <p id="title">Music Player</p>
+        <div id="search">
+            <input id="search-bar" type="text" placeholder="Search for Artists, Songs, and Movies...">
+            <button id="submit">Search</button>
+        </div>
+        <video id="player" src="" controls=""></video>
     </div>
     <div id="output"></div>
 </div>    
