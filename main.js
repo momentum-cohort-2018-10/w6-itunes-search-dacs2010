@@ -1,11 +1,8 @@
-
-// - have one player that plays everything
-// --event.target
-// -- pass the media src to the players scr apon request
 // - clear when reloading page
 // - organize search results by artist, song title, or album
 // - look into making every word capitalized 
 // - by clicking on any of the media text should take you to approperate page
+// - change image size
 
 
 function getId(id) {
@@ -57,17 +54,14 @@ function searchEvent() {
 
                 for (let item of data.results) {
                     // look into replace or any method to change the query for the image size
-                    let itemSRC = item.previewUrl
                     $('#output').append(`<div class="item-wrapper"></div>`)
                     $('.item-wrapper').append(`
                     <div class="item">
-                        <img src="${item.artworkUrl100}"></img>
+                        <img class="item-image" src="${item.artworkUrl100.replace(/100x100bb.jpg/, "/200x200bb.jpg")}"></img>
                         <img class="target" src="${item.previewUrl}" controls></img>
                         <p>Track Name: ${item.trackName}</p>
                         <p>Artist: ${item.artistName}</p>
                         <p>Album: ${item.collectionName}</p>
-                        <p>Track Name: ${item.trackName}</p>
-                        
                     </div>
                 `)
                 }
@@ -77,8 +71,7 @@ function searchEvent() {
 }
 
 
-$('#output').on("click", ".item", function (event) {
-    console.log(event)
+$('#output').on("click", ".target", function (event) {
     $('#player').attr("src", event.target.src).trigger('play')
 } )
 
